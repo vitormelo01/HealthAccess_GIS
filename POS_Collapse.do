@@ -257,6 +257,8 @@ clear
 use `x'.dta
 
 rename fips id 
+
+save `x'.dta, replace
 }
 
 
