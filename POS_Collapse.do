@@ -53,7 +53,7 @@ save NursingHomeQuantity, replace
 * Total Skilled Nursing Homes per State 
 * ------------------------------------------------------------------------------
 clear
-global category "prvdr_ctgry_cd == 2 | prvdr_ctgry_cd == 3 | prvdr_ctgry_cd == 4"
+global category "prvdr_ctgry_cd == 4"
 
 forvalues i = 1991/2020 {
 
@@ -141,7 +141,7 @@ save NursingHomeBeds, replace
 * Total Skilled Nursing Home Beds per State 
 * ------------------------------------------------------------------------------
 clear
-global category "prvdr_ctgry_cd == 2 | prvdr_ctgry_cd == 3 | prvdr_ctgry_cd == 4 "
+global category "prvdr_ctgry_cd == 4"
 
 forvalues i = 1991/2020 {
 
