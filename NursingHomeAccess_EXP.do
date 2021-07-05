@@ -6,8 +6,12 @@
 
 * Setting Directory
 clear 
-global Directory "D:\OneDrive\Research_Resources\HealthAccess_Resources\POS_Data"
-cd $Directory
+
+* Setting Env Variables
+global directory: env HealthAccessDirectory
+
+* Setting Directory
+cd "$directory"
 
 
 *-------------------------------------------------------------------------------

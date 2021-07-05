@@ -1,5 +1,12 @@
 clear
-cd "D:\OneDrive\POS_Data"
+
+* Setting Env Variables
+global directory: env HealthAccessDirectory
+
+* Setting Directory
+cd "$directory"
+
+
 use "POS2020.dta"
 
 gen fips = .

@@ -2,9 +2,11 @@
 * Cleaning and Appending Access Data
 * ------------------------------------------------------------------------------
 
+* Setting Env Variables
+global directory: env HealthAccessDirectory
 
-clear
-cd "D:\OneDrive\Research_Resources\HealthAccess_Resources\POS_Data"
+* Setting Directory
+cd "$directory"
 
 *-------------------------------------------------------------------------------
 * Total Nursing homes per State 
