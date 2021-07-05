@@ -14,7 +14,7 @@ Average driving distances between rural citizens and the nearest hospital are me
 
 ### Software Utilized:
 
-Stata and ArcGIS
+Stata and ArcGIS.
 
 ### Results:
 
