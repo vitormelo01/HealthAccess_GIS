@@ -672,8 +672,7 @@ save CON_NursingHome, replace
 * ------------------------------------------------------------------------------
 
 drop if year<=1990
-drop if id==2
-drop if id==11
+
 gen Q_NursingHomes_pcp = Q_NursingHomes/pop*100
 gen Q_NursingHomeBeds_pcp = Q_NursingHomeBeds/pop*100
 gen Q_SkilledNursingHomes_pcp = Q_SkilledNursingHomes/pop*100
@@ -697,18 +696,15 @@ tsset id year
 keep if alwaysconpa==1 | repeal_y=="1996"
 
 *   ---Skilled Nursing home quantity---
-synth Q_SkilledNursingHomes_pcp $controls Q_SkilledNursingHomes_pcp(1994) Q_SkilledNursingHomes_pcp(1993) Q_SkilledNursingHomes_pcp(1992) Q_SkilledNursingHomes_pcp(1991), trunit(42) trperiod(1996) nested fig
+synth Q_SkilledNursingHomes_pcp $controls Q_SkilledNursingHomes_pcp(1993) Q_SkilledNursingHomes_pcp(1992) Q_SkilledNursingHomes_pcp(1991), trunit(42) trperiod(1996) nested fig
 
 *   ---Skilled Nursing home Beds---
-synth Q_SkilledNursingHomeBeds_pcp $controls Q_SkilledNursingHomeBeds_pcp(1995) Q_SkilledNursingHomeBeds_pcp(1994) Q_SkilledNursingHomeBeds_pcp(1993) Q_SkilledNursingHomeBeds_pcp(1992), trunit(42) trperiod(1996) nested fig
+synth Q_SkilledNursingHomeBeds_pcp $controls Q_SkilledNursingHomeBeds_pcp(1993) Q_SkilledNursingHomeBeds_pcp(1992) Q_SkilledNursingHomeBeds_pcp(1991), trunit(42) trperiod(1996) nested fig
 
 
-by id: count
 
-drop if id==23
-drop if id==33
-drop if id==44
-drop if id==50
+
+
 
 
 * Notes

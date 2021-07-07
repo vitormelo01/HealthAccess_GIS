@@ -2,6 +2,10 @@
 * Cleaning and Appending Access Data
 * ------------------------------------------------------------------------------
 
+
+
+
+clear
 * Setting Env Variables
 global directory: env HealthAccessDirectory
 
@@ -188,7 +192,6 @@ save SkilledNursingHomeBeds, replace
 * Creating FIPs code for all datasets
 * ------------------------------------------------------------------------------
 
-
 foreach x in NursingHomeQuantity SkilledNursingHomeQuantity NursingHomeBeds SkilledNursingHomeBeds  { 
 
 clear
@@ -263,21 +266,43 @@ rename fips id
 save `x'.dta, replace
 }
 
+*-------------------------------------------------------------------------------
+* Minor Clean up + taking care of accidently created missing observations when it should be 0
+* ------------------------------------------------------------------------------
+
+* total quantity of Skilled nursing homes
+clear
+use SkilledNursingHomeQuantity.dta
+sort id year
+
+*Filling in year of missing variables
+xtset id year
+tsfill, full
+
+* dropping data with issues (prior to 1991)
+drop if year<=1990
+
+replace Q_SkilledNursingHomes = 0 if missing(Q_SkilledNursingHomes)
+
+save SkilledNursingHomeQuantity.dta, replace
 
 
+* Amount of beds in Skilled nursing homes
+clear
+use SkilledNursingHomeBeds.dta
+sort id year
 
+*Filling in year of missing variables
+xtset id year
+tsfill, full
 
+* dropping data with issues (prior to 1991)
+drop if year<=1990
 
+* Replacing the missing variables with 0 since the collapse function regsitrar these observation as missing, when it should actuallly be 0.
+replace Q_SkilledNursingHomeBeds = 0 if missing(Q_SkilledNursingHomeBeds)
 
-
-
-
-
-
-
-
-
-
+save SkilledNursingHomeBeds.dta, replace
 
 
 
