@@ -11,7 +11,7 @@ clear
 global directory: env HealthAccessDirectory
 
 * Setting Directory
-cd "$directory"
+cd "C:\Users\vitor\OneDrive\Research_Resources\HealthAccess_Resources\Data"
 
 
 *-------------------------------------------------------------------------------
@@ -644,7 +644,7 @@ save CON_NursingHome, replace
 * ------------------------------------------------------------------------------
 * Merging with Nursing home/bed quantity data
 * ------------------------------------------------------------------------------
-drop _merge
+
 merge 1:1 id year using NursingHomeQuantity.dta
 drop if _merge==1
 drop if _merge==2
@@ -685,6 +685,8 @@ save CON_NursingHome, replace
 * ------------------------------------------------------------------------------
 * Synthetic Control Analysis
 * ------------------------------------------------------------------------------
+ssc install synth
+
 clear
 use CON_NursingHome.dta
 
